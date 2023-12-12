@@ -1,0 +1,37 @@
+<%- include('../DRY/header.ejs') %>
+</head>
+<%- include('../DRY/navigation.ejs') %>
+<body>
+    <h1> <%=topic.TITLE%></h1>
+    <p><%=topic.INGRE%></p>
+    <P><%=topic.PROCEDURES%></P>
+    <img src="<%=topic.IMAGE%>" >
+                <%if ( typeof(userName)!='undefined') {%>                
+                <form action="../user/add-comment" method="post">
+                    <label for="comment"></label> 
+                    <textarea  id="comment" placeholder="write something to encourage us" name="comment" ></textarea>
+                    <label for="topicComment"></label>
+                    <input type="text" value="<%=topic.TITLE%>" name="topicComment" style="display: none;">
+                    
+                    <button type="submit">share your opinion</button>
+
+                </form>
+              <%} else {%>
+                <form >
+                    <label for="comment"></label> 
+                    <textarea  id="comment" placeholder="if you like my article register and leave me a comment" name="comment" cols="50" rows="20"></textarea>
+                    <label for="topicComment"></label>
+                    <input type="text" value="<%=topic.TITLE%>" name="topicComment" style="display: none;">
+                    
+                    <button type="button" disabled>share your opinion</button>
+
+                </form>
+                <%}%>
+                <!-- in all cases you will see the responses -->
+            <% if( typeof(responses)!='undefined'&&responses.length>0) {%>
+                <% for(let j =responses.length-1 ;j>=0;j--){%> 
+                        <p><%=responses[j].USER_EMAIL%> wrote <%=responses[j].COMMEN%> </p>                   
+                <%}%>
+            <%}%>
+</body>
+</html>

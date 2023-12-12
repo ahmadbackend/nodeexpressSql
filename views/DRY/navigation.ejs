@@ -1,0 +1,25 @@
+<nav>
+    <% if(!isAdmin){ %>
+    <a href="/user/contact" class="contact" >contact us </a>
+    <%}%>
+    <section class="user-area">
+    <% if(!isAdmin&&!isUser) {%>
+    <a href='/auth/login' class="log">login </a>
+    <a href="/auth/register" class="register">new learner</a>
+    <%}%>
+  <% if(isAdmin){ %>
+    <a href="/admin/create-new-topic">add new topic</a>
+    <a href="/admin/homepage">homepage</a>
+    <a href="/admin/census"> view census</a>
+    <a href="/admin/setting">setting </a>
+    <a href="/admin/drafts"> resume your drafts</a>
+  <%}%>
+  <%if(isAdmin||isUser){%>
+    <form action="/auth/logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+    <%}%>
+</section>
+</nav>
+

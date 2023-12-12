@@ -1,0 +1,18 @@
+<%- include('../DRY/header.ejs') %>
+</head>
+<%- include('../DRY/navigation.ejs') %>
+<body>
+    <p> welcome admin here you can change your name and blog name in future you will be able to
+        block malicious users 
+    </p>
+<form action="/admin/setting" method="post">
+<label for="blogtitle">blog title :</label>
+<input type="text"id="blogtitle" name="blogTitle" required >
+<label for="author-name">author name</label>
+<input type="text" id="author-name" name="author" required>
+<label for="blogImage">background home page  image :</label>
+<input type="text"id="blogImage" name="blogImage" required >
+<button type="submit"> approve changes</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+a{
+    text-decoration: none;
+    margin-right: 10px;
+
+}
+.contact{
+    text-align: left;
+    margin:1rem 10px ;
+    padding-top: 20px;
+    
+
+}
+.user-area{
+    display: flex;
+    justify-content:flex-end;
+    justify-items:flex-end;
+    
+}
+.register, .log{
+    background-color: #ACD0E6;
+    color: #2E1145;
+    font-size: larger;
+}
+    
+.linkBut{
+    button {
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        /*optional*/
+        font-family: arial, sans-serif;
+        /*input has OS specific font-family*/
+        color: #069;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+.topic{
+    padding:5px;
+    min-width: 30%;
+    max-width: 70%;
+    min-height:50vh ;
+}
+img{
+    max-width:35%;
+    display: inline;
+}

@@ -1,0 +1,16 @@
+<%- include('../DRY/header.ejs') %>
+</head>
+<%- include('../DRY/navigation.ejs') %>
+<body>
+    <h1> hello admin here is your census</h1>
+    <h3>total number of registered users is <%= users%></h3>
+    <ul>
+        <% if (topicComments.length>0){%>
+        <% for(let i=0;i<topicComments.length ;i++){ %>
+            <li> <strong><%=topicComments[i].row%></strong>  has <%=topicComments[i].length%> comments  </li>
+            <%}%>
+            <%}else {%>
+                <p>you did not publish anything yet please start </p>
+    </ul>
+</body>
+</html>

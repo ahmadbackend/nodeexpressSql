@@ -1,0 +1,31 @@
+<%- include('../DRY/header.ejs') %>
+</head>
+<%- include('../DRY/navigation.ejs') %>
+<body>
+    <h1> <%=topic.TITLE%></h1>
+    <p><%=topic.INGRE%></p>
+    <P><%=topic.PROCEDURES%></P>
+    <img src="<%=topic.IMAGE%>" >
+  
+                <form action="../admin/add-comment" method="post">
+                    <label for="comment"></label> 
+                    <textarea  id="comment" placeholder="interact with your follwers" name="comment" ></textarea>
+                    <label for="topicComment"></label>
+                    <input type="text" value="<%=topic.TITLE%>" name="topicComment" style="display: none;">
+                    
+                    <button type="submit">reply to your follwers</button>
+
+                    
+                </form>
+                <form action="../admin/delete" method="post">
+                    <label for="post"></label> 
+                    <input  id="post" value="<%=topic.TITLE%>" name="post" style="display: none;" >
+                    <button type="submit">delete post</button>                        
+                </form>
+            <% if( typeof(responses)!='undefined'&&responses.length>0) {%>
+                <% for(let j =0 ;j<responses.length;j++){%> 
+                        <p><%=responses[j].USER_EMAIL%> wrote <%=responses[j].COMMEN%> </p>                   
+                <%}%>
+            <%}%>
+</body>
+</html>

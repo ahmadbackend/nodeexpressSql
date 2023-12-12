@@ -1,0 +1,27 @@
+<%- include('../DRY/header.ejs') %>
+</head>
+<%- include('../DRY/navigation.ejs') %>
+<body>
+    <% if(topics.length>0){%>
+
+    <%for(let i =0;i<topics.length;i++){%>
+        <form method ="post" action="/admin/editDraft">
+            <h1> <%= topics[i].TITLE%></h1>
+            <H3><%= topics[i].INGRE%></H3>
+            <input type="hidden" name="topicIngre" value="<%=topics[i].INGRE%>" style="display: none;"></input>
+            <input type="hidden" name="topicPorcedures" value="<%=topics[i].PROCEDURES%>" style="display: none;"></input>
+            <input type="hidden" name="topicImage" value="<%=topics[i].IMAGE%>" style="display: none;"></input>
+            <button type="submit" name="topicTitle" value="<%=topics[i].TITLE%>" class="linkBut">RESUME YOUR PROJECT </button>
+      
+         </form>           
+                <%}%>
+    <%}else {%>
+        <h1> you do not have drafts yet </h1>
+    <%}%>
+    
+  
+
+    
+  
+</body>
+</html>

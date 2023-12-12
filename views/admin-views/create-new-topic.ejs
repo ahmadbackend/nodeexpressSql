@@ -1,0 +1,53 @@
+<%- include('../DRY/header.ejs') %>
+</head>
+<%- include('../DRY/navigation.ejs') %>
+
+<body>
+   <%if(typeof(draft)=='undefined'){%> 
+    <form action="/admin/added-topic" method="post">
+        
+        <label for="title">topic title </label>
+        <input id="title "type="text" name="title" placeholder="article title">
+        <label for="ingre">ingredients</label>
+        <textarea id="ingredients" name="ingre" cols="50" rows="15"
+        placeholder="write your ingredietnts here"></textarea>
+        <label for="content">procedures</label>
+
+        <textarea id="content" name="content" cols="50" rows="15"
+        placeholder="write procedures here"></textarea>
+    
+        <label for="image">image link </label>
+        <input type="text" name="image" id="image" 
+        placeholder=" add image link here" >
+        <button type="submit">publish</button>
+        <button type="submit" formaction="/admin/saveDraft">save as a draft </button>
+
+
+
+    </form>
+    <%} else if(typeof(draft)!="undefined"){%>
+        <form action="/admin/added-topic" method="post">
+        <H1> we accessed the draft</H1>
+            <label for="title"></label>
+            <input id="title "type="text" name="title" value ="<%=draft.title%>">
+
+            <label for="ingre">ingreditients</label>
+            <textarea id="ingredients" name="ingre" cols="50" rows="15"
+            placeholder="write your ingredietnts here" value ="<%=draft.ingre%>"> test content </textarea>
+
+            <label for="content">procedures</label>
+    
+            <textarea id="content" name="content" cols="50" rows="15"
+            placeholder="write procedures here" value ="<%=draft.procedures%>"></textarea>
+
+        
+            <label for="image">image linke</label>
+            <input type="text" name="image" id="image" value="<%=draft.image%>" > 
+            <button type="submit">publish</button>
+            <button type="submit" formaction="/admin/saveDraft">save draft </button>
+            
+    
+    
+    <%}%>
+</body>
+</html>

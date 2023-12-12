@@ -1,0 +1,26 @@
+<%- include('../DRY/header.ejs') %>
+</head>
+<%- include('../DRY/navigation.ejs') %>
+<body>
+    <div></div>
+    <h3> hello my valuable guest welcome in <%=package.BLOGTITLE%></h3>
+    <h5> author is  <%=package.AUTHOR%></h5>
+
+
+    <% if(topics.length>0){%>
+        <!-- to display topic from latest to oldest-->
+        <%for(let i =topics.length-1;i>=0;i--){%>
+            <form method ="post" action="/user/topicPage">
+                <button type="submit" name="topicTitle" value="<%=topics[i].TITLE%>" class="linkBut"><%=topics[i].TITLE%></button>
+        <!-- <a href="../admin/TEST" value="<%=topics[i].TITLE%>" name="topicName"> <%=topics[i].TITLE%></a>
+       --> </form> 
+          
+            <img src="<%=topics[i].IMAGE%>" style="width: 100%; height: fit-content;">
+          
+                    <%}%>
+        <%}%>
+   
+              
+</div>
+</body>
+</html>
